@@ -1,19 +1,18 @@
 from colorthief import ColorThief
 import webcolors
 
-# функиция, которая извлекает 5 доминирующих цветов из изображения 
+# функиция, которая извлекает 5 доминирующих цветов в изображении 
 def get_five_dominant_colors_rgb(image):
-    # Создаём объекта ct класса ColorThief и передаём ему изображение
+    # Создаём объект ct класса ColorThief и передаём ему изображение
     ct = ColorThief(image)
-    # Получаем палитру из 5 цветов в формате RGB с помощью 
-    # метода get_palette у объекта ct
+    # Получаем палитру из 5 цветов в формате RGB с помощью метода get_palette
     five_color_rgb_palette = ct.get_palette(color_count=5)
 
     return five_color_rgb_palette
 
 # функция, которая находит ближайший цвет к исходному оттенку
 def get_closest_color_to_shade(color_rgb):
-    differences = {} # пустой словарь, который будет хранить разницы между цветами
+    differences = {} # пустой словарь, который будет хранить разницу между цветами
     
     # расчитаем разницу между каждым цветом в словаре webcolors.CSS3_HEX_TO_NAMES,
     # который содержит 138 цветов в формате HEX и их названия
@@ -47,4 +46,4 @@ def get_names_of_five_dominant_colors(image):
 
     for c_rgb in palette:
         list_of_color_names_in_palette.append(get_color_names(c_rgb))
-    return list_of_color_names_in_palette    
+    return list_of_color_names_in_palette 
